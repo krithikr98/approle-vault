@@ -1,8 +1,8 @@
 provider "aws" {
         
         region  = "us-west-2"
-        access_key = "AKIAYYKVJFD73PZFBEAA"
-        secret_key = "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"
+        #access_key = "AKIAYYKVJFD73PZFBEAA"
+        #secret_key = "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"
 
 }
 
@@ -35,16 +35,3 @@ resource "aws_network_interface" "foo" {
   }
 }
 
-resource "aws_instance" "foo" {
-  ami           = "ami-005e54dee72cc1d00" # us-west-2
-  instance_type = "t2.micro"
-
-  network_interface {
-    network_interface_id = aws_network_interface.foo.id
-    device_index         = 0
-  }
-
-  credit_specification {
-    cpu_credits = "unlimited"
-  }
-}
